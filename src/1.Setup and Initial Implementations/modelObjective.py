@@ -38,12 +38,6 @@
 import numpy as np
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 class modelObjective:
 
     def __init__(self, p: np.array):

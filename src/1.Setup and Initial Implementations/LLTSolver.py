@@ -27,13 +27,6 @@
 
 import numpy as np
 
-
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 def LLTSolver(L: np.array, r: np.array, verbose=0):
 
     if verbose:
