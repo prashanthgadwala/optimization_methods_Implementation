@@ -30,11 +30,6 @@ import numpy as np
 import WolfePowellSearch as WP
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
 
 def BFGSDescent(f, x0: np.array, eps=1.0e-3, verbose=0):
     if eps <= 0:

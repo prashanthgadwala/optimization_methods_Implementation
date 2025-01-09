@@ -9,12 +9,6 @@
 import numpy as np
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 class noHessianObjective:
     # Nonlinear function R**2 -> R
     # 2-dimensional nonlinear function mapping x -> -0.03/((x(0) +0.25)**2 +(x(1) -0.2)**2 +0.03) -0.1/((x(0) -0.25)**2 +(x(1)+ 0.2)**2 +0.04) + 0.1/(x(0)**2 +x(1)**2 +0.05) +1 +x(0)**2 +x(1)**2 + 1;

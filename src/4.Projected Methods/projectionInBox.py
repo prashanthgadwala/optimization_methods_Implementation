@@ -39,12 +39,6 @@
 import numpy as np
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 class projectionInBox:
   
     def __init__(self, a: np.array, b: np.array, eps=1.0e-6):

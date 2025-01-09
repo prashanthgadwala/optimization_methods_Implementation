@@ -6,10 +6,16 @@ print('Welcome to Optimization for Engineers.\n')
 print('If this script fails, then your programming homework is not working correctly.')
 
 import numpy as np
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/2.Preconditioned Conjugate Gradient Solver and Newton Descent')))
+
 import quadraticObjective as QO
 import bananaValleyObjective as BO
 import PrecCGSolver as PCG
 import NewtonDescent as ND
+
 
 print('Checking PrecCGSolver...')
 A = np.array([[4, 1, 0], [1, 7, 0], [0, 0, 3]], dtype=float)

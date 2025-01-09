@@ -7,6 +7,10 @@ print('If this script fails, then your setup is not working correctly.')
 print('First we check if the math package numpy is installed.')
 
 import numpy as np
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/1.Setup and Initial Implementations')))
 
 X = np.power(2, 3)
 Y = 2**3

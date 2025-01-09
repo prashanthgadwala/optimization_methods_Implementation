@@ -48,12 +48,6 @@
 import numpy as np
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 def WolfePowellSearch(f, x: np.array, d: np.array, sigma=1.0e-3, rho=1.0e-2, verbose=0):
     fx = f.objective(x)
     gradx = f.gradient(x)

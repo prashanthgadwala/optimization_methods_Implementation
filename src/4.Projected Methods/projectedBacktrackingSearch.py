@@ -33,12 +33,6 @@
 import numpy as np
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 def projectedBacktrackingSearch(f, P, x: np.array, d: np.array, sigma=1.0e-4, verbose=0):
     xp = P.project(x)
     gradx = f.gradient(xp)

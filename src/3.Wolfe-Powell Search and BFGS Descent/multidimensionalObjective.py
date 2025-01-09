@@ -8,12 +8,6 @@
 import numpy as np
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 class multidimensionalObjective:
     # Nonlinear function R**8 -> R with parameter p
     # 8-dimensional nonlinear function mapping x ->  0.5*x.T @ A @ x  - b.T@x + p/(0.5*x.T @ A2 @ x + 1);

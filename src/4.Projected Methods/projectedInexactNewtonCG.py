@@ -35,11 +35,6 @@ import numpy as np
 import projectedBacktrackingSearch as PB
 import projectedHessApprox as PHA
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
 
 def projectedInexactNewtonCG(f, P, x0: np.array, eps=1.0e-3, verbose=0):
 

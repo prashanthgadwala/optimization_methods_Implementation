@@ -33,12 +33,6 @@
 import numpy as np
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 def CGSolver(A: np.array, b: np.array, delta=1.0e-6, verbose=0):
 
     if verbose:

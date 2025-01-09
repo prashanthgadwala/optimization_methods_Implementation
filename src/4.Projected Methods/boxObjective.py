@@ -41,12 +41,6 @@
 import numpy as np
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 class boxObjective:
 
     def __init__(self, A: np.array, b: np.array, c: float, aa: np.array, bb: np.array):

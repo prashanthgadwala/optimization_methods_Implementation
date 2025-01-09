@@ -47,12 +47,6 @@ import projectedInexactNewtonCG as PCG
 import augmentedLagrangianObjective as AO
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 def augmentedLagrangianDescent(f, P, h, x0: np.array, alpha0=0, eps=1.0e-3, delta=1.0e-6, verbose=0):
     if eps <= 0:
         raise TypeError('range of eps is wrong!')

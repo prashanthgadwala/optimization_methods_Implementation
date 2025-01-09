@@ -8,12 +8,6 @@
 import numpy as np
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 class bananaValleyObjective:
     # Nonlinear function R**2 -> R
     # test function mapping

@@ -6,6 +6,11 @@ print('Welcome to Optimization for Engineers.\n')
 print('If this script fails, then your programming homework is not working correctly.')
 
 import numpy as np
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/5.Least Squares Model and Levenberg Marquardt Descent')))
+
 import simpleValleyObjective as SO
 import modelObjective as MO
 import leastSquaresModel as LSM

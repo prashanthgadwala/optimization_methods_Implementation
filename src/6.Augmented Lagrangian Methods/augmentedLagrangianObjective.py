@@ -37,12 +37,6 @@
 import numpy as np
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 class augmentedLagrangianObjective:
 
     def __init__(self, f, h, alpha, gamma):

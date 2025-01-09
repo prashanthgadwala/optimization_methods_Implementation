@@ -33,12 +33,6 @@ import numpy as np
 import PrecCGSolver as PCG
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
-
 def levenbergMarquardtDescent(R, p0: np.array, eps=1.0e-4, alpha0=1.0e-3, beta=100, verbose=0):
     if eps <= 0:
         raise TypeError('range of eps is wrong!')

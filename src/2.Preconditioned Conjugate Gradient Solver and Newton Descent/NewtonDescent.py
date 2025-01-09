@@ -28,11 +28,6 @@ import numpy as np
 import PrecCGSolver as PCG
 
 
-def matrnr():
-    # set your matriculation number here
-    matrnr = 0
-    return matrnr
-
 
 def NewtonDescent(f, x0: np.array, eps=1.0e-3, verbose=0):
 
@@ -46,7 +41,7 @@ def NewtonDescent(f, x0: np.array, eps=1.0e-3, verbose=0):
     x = x0
 
     # INCOMPLETE CODE STARTS
-
+    
     # INCOMPLETE CODE ENDS
 
     if verbose:
