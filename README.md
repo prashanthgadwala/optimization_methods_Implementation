@@ -45,3 +45,17 @@ Clone the repository:
 ```sh
 git clone https://github.com/yourusername/optimization_methods_implementation.git
 cd optimization_methods_implementation
+
+### Running the Tests
+ Tests contains CheckX.py file to verify the correctness of the implementations. Run these files to ensure everything is working correctly:
+```sh
+python test/CheckX.py
+
+### Contributing
+Contributions are welcome! Please read the contributing guidelines for more details.
+
+### License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+### Acknowledgements
+Special thanks to Dr. Johannes Hild for providing the course materials and guidance.
