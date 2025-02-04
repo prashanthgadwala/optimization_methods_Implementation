@@ -43,7 +43,7 @@ This repository contains a collection of projects and implementations related to
 ### Installation
 Clone the repository:
 ```sh
-git clone https://github.com/yourusername/optimization_methods_implementation.git
+git clone https://github.com/prashanthgadwala/optimization_methods_implementation.git
 cd optimization_methods_implementation
 ```
 
