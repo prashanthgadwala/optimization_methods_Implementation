@@ -46,7 +46,21 @@ def PrecCGSolver(A: np.array, b: np.array, delta=1.0e-6, verbose=0):
     x = LLT.LLTSolver(L, b)
     r = A @ x - b
     # INCOMPLETE CODE STARTS
+    z = LLT.LLTSolver(L, r)
+    p = z.copy()
+    rz_old = np.dot(r.T, z)
 
+    while np.linalg.norm(r) > delta:
+        Ap = A @ p
+        alpha = rz_old / np.dot(p.T, Ap)
+        x = x + alpha * p
+        r = r - alpha * Ap
+        z = LLT.LLTSolver(L, r)
+        rz_new = np.dot(r.T, z)
+        beta = rz_new / rz_old
+        p = z + beta * p
+        rz_old = rz_new
+        countIter += 1
     # INCOMPLETE CODE ENDS
 
     if verbose:
