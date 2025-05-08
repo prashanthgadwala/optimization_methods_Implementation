@@ -51,6 +51,17 @@ def levenbergMarquardtDescent(R, p0: np.array, eps=1.0e-4, alpha0=1.0e-3, beta=1
 
     # INCOMPLETE CODE STARTS
 
+    p = p0 # initialize with starting point
+    alpha = alpha0 # initialize with starting value for damping
+
+    while np.linalg.norm(R.jacobian(p).T @ R.residual(p)) > eps: # iterating until norm of jacobian times residual is below eps
+        countIter += 1 # increment iteration counter
+        d = -PCG.PrecCGSolver(R.jacobian(p).T @ R.jacobian(p) + alpha * np.eye(p.shape[0]), R.jacobian(p).T @ R.residual(p)) # store direction of steepest descent
+        if 0.5 * R.residual(p + d).T @ R.residual(p + d) < 0.5 * R.residual(p).T @ R.residual(p): # check if new point is better than old point
+            p = p + d # update p with new point
+            alpha = alpha0 # reset alpha to starting value
+        else: # if new point is not better than old point
+            alpha = alpha * beta # increase alpha
 
     # INCOMPLETE CODE ENDS
     if verbose:

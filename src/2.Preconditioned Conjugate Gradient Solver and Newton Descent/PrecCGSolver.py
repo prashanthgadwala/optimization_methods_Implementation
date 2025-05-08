@@ -46,21 +46,21 @@ def PrecCGSolver(A: np.array, b: np.array, delta=1.0e-6, verbose=0):
     x = LLT.LLTSolver(L, b)
     r = A @ x - b
     # INCOMPLETE CODE STARTS
-    z = LLT.LLTSolver(L, r)
-    p = z.copy()
-    rz_old = np.dot(r.T, z)
-
-    while np.linalg.norm(r) > delta:
-        Ap = A @ p
-        alpha = rz_old / np.dot(p.T, Ap)
-        x = x + alpha * p
-        r = r - alpha * Ap
-        z = LLT.LLTSolver(L, r)
-        rz_new = np.dot(r.T, z)
-        beta = rz_new / rz_old
-        p = z + beta * p
-        rz_old = rz_new
-        countIter += 1
+    d = -LLT.LLTSolver(L, r) # store direction of steepest descent
+    
+    while np.linalg.norm(r) > delta: #iterating until norm of residual is below delta
+        q = A @ d   # store q as A @ d
+        p = d.T @ q # store p as inner product of d with q
+        t = (r.T @ LLT.LLTSolver(L, r))/p # computing t as step size
+        x = x + t * d # update x with step size and direction
+        r_0 = r # store old residual
+        r = r + t * q # update residual
+        beta = (r.T @ LLT.LLTSolver(L, r))/(r_0.T @ LLT.LLTSolver(L, r_0)) # computing conjugate gradient coefficient
+        d = -LLT.LLTSolver(L, r) + beta * d # update direction with beta and new residual
+        countIter += 1 # increment counter
+    
+    x_c = x.copy() # store copy of x after loop termination
+    print("The critical solution is: ", x_c) # print solution
     # INCOMPLETE CODE ENDS
 
     if verbose:

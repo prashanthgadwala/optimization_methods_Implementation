@@ -76,6 +76,37 @@ def WolfePowellSearch(f, x: np.array, d: np.array, sigma=1.0e-3, rho=1.0e-2, ver
     t = 1
     # INCOMPLETE CODE STARTS
 
+    def w1(t): # function to check Wolfe condition 1
+        return f.objective(x + t * d) <= fx + t * sigma * descent # check Wolfe condition 1
+    def w2(t): # function to check Wolfe condition 2
+        return f.gradient(x + t * d).T @ d >= rho * descent # check Wolfe condition 2
+    
+    if not w1(t): # if Wolfe condition 1 is not satisfied backtracking
+        t = 0.5 * t # reduce step size
+        while not w1(t): # while Wolfe condition 1 is still not satisfied
+            t = 0.5 * t # again reduce step size 
+        t_ = t # store t minus as new step size
+        tp = 2 * t  # set t plus as double of t
+    
+    elif w2(t): # if Wolfe condition 2 is satisfied 
+        return t # return t as step size
+
+    else: # if Wolfe condition 1 is satisfied and Wolfe condition 2 is not satisfied fronttracking
+        t = 2 * t # increase step size
+        while w1(t): # while Wolfe condition 1 is satisfied
+            t = 2 * t # increase step size
+        t_ = t * 0.5 # store t minus as new step size 
+        tp = t # set t plus as t
+
+    t = t_ # set t as t minus
+
+    while not w2(t): # while Wolfe condition 2 is not satisfied
+        t = 0.5 * (t_ + tp) # set t as average of t minus and t plus
+        if w1(t): # if Wolfe condition 1 is satisfied
+            t_ = t # set t minus as t
+        else: # if Wolfe condition 1 is not satisfied
+            tp = t # set t plus as t
+
     # INCOMPLETE CODE ENDS
 
     if verbose:

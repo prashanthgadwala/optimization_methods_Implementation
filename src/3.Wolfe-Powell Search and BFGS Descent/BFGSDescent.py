@@ -45,6 +45,8 @@ def BFGSDescent(f, x0: np.array, eps=1.0e-3, verbose=0):
     B = E
     # INCOMPLETE CODE STARTS
 
+    
+
     # INCOMPLETE CODE ENDS
     if verbose:
         gradx = f.gradient(x)

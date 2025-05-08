@@ -72,12 +72,6 @@ if np.linalg.norm(xmin - xe) < 1.0e-2:
 else:
     raise Exception('Your Newton Descent does not work for the banana valley objective')
 
-if PCG.matrnr() == 0:
-    raise Exception('Please set your matriculation number in PrecCGSolver.py!')
-elif ND.matrnr() == 0:
-    raise Exception('Please set your matriculation number in NewtonDescent.py!')
-else:
-    print('Everything seems to be fine, please return your files in StudOn')
 
 print('\nWe finished now NewtonDescent, which is a q-quadratic descent algorithm, but it has two big flaws:')
 print('First, it only works reliably for convex objectives. Second, it requires expensive Hessian information.')
