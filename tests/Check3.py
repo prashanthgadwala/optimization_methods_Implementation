@@ -89,12 +89,6 @@ if np.linalg.norm(xmin - xe) < 1.0e-2:
 else:
     raise Exception('Your BFGS Descent does not work for the banana valley objective')
 
-if WP.matrnr() == 0:
-    raise Exception('Please set your matriculation number in WolfePowellSearch.py!')
-elif BD.matrnr() == 0:
-    raise Exception('Please set your matriculation number in BFGSDescent.py!')
-else:
-    print('Everything seems to be fine, please return your files in StudOn')
 
 print('\nWe finished now BFGSDescent, which is a q-superlinear descent algorithm, that converges globally for unconstrained problems.')
 print('It does not require Hessian information or a linear system solver like CG.')

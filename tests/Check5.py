@@ -85,12 +85,6 @@ if np.linalg.norm(pmin-pe) < 1.0e-1:
 else:
     raise Exception('Your levenbergMarquardtDescent returns wrong parameters for the model problem')
 
-if LSM.matrnr() == 0:
-    raise Exception('Please set your matriculation number in leastSquaresModel.py!')
-elif LMD.matrnr() == 0:
-    raise Exception('Please set your matriculation number in levenbergMarquardtDescent.py!')
-else:
-    print('Everything seems to be fine, please return your files in StudOn')
 
 print('\nWe finished now levenbergMarquardtDescent, which is a q-superlinear descent algorithm for least squares objectives.')
 print('We use it to find the parameters of the model problem with data fitting.')

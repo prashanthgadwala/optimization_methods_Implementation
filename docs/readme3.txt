@@ -11,12 +11,12 @@ BFGSDescent: Descent method with global q-superlinear convergence rate. Does not
 simpleValleyObjective: Test problem for Wolfe-Powell.
 noHessianObjective: Test problem without Hessian information.
 multidimensionalObjective: Test problem in 8 dimensions.
-Check02: Run this to check your files for correctness, requires files from previous LABs.
+Check03: Run this to check your files for correctness, requires files from previous LABs.
 
 ---
 Tasks
 ---
-Complete WolfePowellSearch.py and BFGSDescent.py and check them with Check02.py for correctness.
+Complete WolfePowellSearch.py and BFGSDescent.py and check them with Check03.py for correctness.
 Everything is fine if you get "Process finished with exit code 0" AND the number of iterations of the last check is smaller than 30.
 Upload WolfePowellSearch.py and BFGSDescent.py within the deadline.
 

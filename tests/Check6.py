@@ -93,12 +93,6 @@ if np.linalg.norm(xmin-xmine) < 1.0e-1 and np.linalg.norm(alphamin-alphamine) < 
 else:
     raise Exception('Your augmentedLagrangianDescent returns a wrong result for the model problem')
 
-if AO.matrnr() == 0:
-    raise Exception('Please set your matriculation number in augmentedLagrangianObjective.py!')
-elif AD.matrnr() == 0:
-    raise Exception('Please set your matriculation number in augmentedLagrangianDescent.py!')
-else:
-    print('Everything seems to be fine, please return your files in StudOn')
 
 print('\nWe finished now augmentedLagrangianDescent, which is a q-superlinear descent algorithm for objectives subject to box constraints and equality constraints.')
 print('We use it to solve the model problem.')

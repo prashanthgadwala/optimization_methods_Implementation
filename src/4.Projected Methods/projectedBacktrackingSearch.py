@@ -49,6 +49,7 @@ def projectedBacktrackingSearch(f, P, x: np.array, d: np.array, sigma=1.0e-4, ve
 
     beta = 0.5
     t = 1
+    rho = 0.5
     # INCOMPLETE CODE STARTS
     
     if np.array_equal(P.project(x + d), x): # check if x+td is inside the feasible set

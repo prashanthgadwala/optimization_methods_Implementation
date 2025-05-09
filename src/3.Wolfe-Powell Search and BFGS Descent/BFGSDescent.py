@@ -44,8 +44,38 @@ def BFGSDescent(f, x0: np.array, eps=1.0e-3, verbose=0):
     E = np.eye(n)
     B = E
     # INCOMPLETE CODE STARTS
-
     
+    while np.linalg.norm(f.gradient(x)) > eps:
+        countIter += 1
+        gradx = f.gradient(x)
+        d = -B @ gradx
+
+        # Step 3b: Check if d is a descent direction
+        if d.T @ gradx >= 0:
+            d = -gradx
+            B = E
+            if verbose:
+                print("Descent direction check failed. Resetting B to identity matrix.")
+
+        # Step 3c: Wolfe-Powell line search
+        t = WP.WolfePowellSearch(f, x, d, 1.0e-3, 1.0e-2, verbose)
+
+        # Step 3d: Compute ∆gk and ∆xk
+        s = t * d
+        x_new = x + s
+        y = f.gradient(x_new) - gradx
+
+        # Step 3e: Update x
+        x = x_new
+
+        # Step 3f: Check curvature condition and update B
+        if y.T @ s <= 0:
+            B = E
+            if verbose:
+                print("Curvature condition failed. Resetting B to identity matrix.")
+        else:
+            rho = 1 / (y.T @ s)
+            B = (E - rho * s @ y.T) @ B @ (E - rho * y @ s.T) + rho * s @ s.T
 
     # INCOMPLETE CODE ENDS
     if verbose:

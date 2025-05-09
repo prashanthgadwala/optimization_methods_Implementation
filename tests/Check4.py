@@ -92,12 +92,6 @@ if np.linalg.norm(xmin-xe) < 1.0e-2:
 else:
     raise Exception('Your projectedInexactNewtonCG is not working for higher dimensions.')
 
-if PS.matrnr() == 0:
-    raise Exception('Please set your matriculation number in projectedBacktrackingSearch.py!')
-elif PCG.matrnr() == 0:
-    raise Exception('Please set your matriculation number in projectedInexactNewtonCG.py!')
-else:
-    print('Check completed.')
 
 print('\nWe finished now projectedInexactNewtonCG, which is a q-superlinear descent algorithm for box constraints, that converges globally for unconstrained problems.')
 print('It does not require Hessian information or a linear system solver like CG.')

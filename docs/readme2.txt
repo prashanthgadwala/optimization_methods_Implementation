@@ -10,12 +10,12 @@ PrecCGSolver: Highly effective linear system solver, needs to be completed.
 NewtonDescent: Descent method with local q-quadratic convergence rate, but has its issues. Needs to be completed.
 bananaValleyObjective: Test problem with vanishing Hessian information.
 quadraticObjective: Testproblem with a hill point not bounded from below.
-Check01: Run this to check your files for correctness, requires files from previous LABs.
+Check02: Run this to check your files for correctness, requires files from previous LABs.
 
 ---
 Tasks
 ---
-Complete PrecCGSolver.py and NewtonDescent.py and check them with Check01.py for correctness.
+Complete PrecCGSolver.py and NewtonDescent.py and check them with Check02.py for correctness.
 Everything is fine if you get "Process finished with exit code 0" AND the number of iterations of the last check is smaller than 30.
 If you have 0 iterations, then you forgot to count them in the loop!
 Upload PrecCGSolver.py and NewtonDescent.py within the deadline.
