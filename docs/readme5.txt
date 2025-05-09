@@ -8,12 +8,12 @@ Files
 ---
 leastSquaresModel: Constructs an objective for Levenberg-Marquardt out of a model objective, needs to be completed.
 levenbergMarquardtDescent: Descent method for least squares objectives with global q-superlinear convergence rate. Needs to be completed.
-Check04: Run this to check your files for correctness, requires files from previous LABs.
+Check05: Run this to check your files for correctness, requires files from previous LABs.
 
 ---
 Tasks
 ---
-Complete leastSquaresModel.py and levenbergMarquardtDescent.py and check them with Check04.py for correctness.
+Complete leastSquaresModel.py and levenbergMarquardtDescent.py and check them with Check05.py for correctness.
 Everything is fine if you get "Process finished with exit code 0" AND the number of iterations of the last check is smaller than 30.
 Upload leastSquaresModel.py and levenbergMarquardtDescent.py within the deadline.
 

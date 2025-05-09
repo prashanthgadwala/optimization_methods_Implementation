@@ -52,6 +52,9 @@ class augmentedLagrangianObjective:
         myObjective = self.f.objective(x)
         # INCOMPLETE CODE STARTS
 
+        h_value = self.h.objective(x)  # Compute h(x)
+        myObjective += self.alpha * h_value + 0.5 * self.gamma * h_value**2  # Augmented Lagrangian formula
+
         # INCOMPLETE CODE ENDS
 
         return myObjective
@@ -59,6 +62,10 @@ class augmentedLagrangianObjective:
     def gradient(self, x: np.array):
         myGradient = self.f.gradient(x)
         # INCOMPLETE CODE STARTS
+
+        h_value = self.h.objective(x)  # Compute h(x)
+        h_gradient = self.h.gradient(x)  # Compute ∇h(x)
+        myGradient += (self.alpha + self.gamma * h_value) * h_gradient  # Augmented Lagrangian gradient formula
 
         # INCOMPLETE CODE ENDS
 

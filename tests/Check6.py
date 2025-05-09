@@ -9,7 +9,11 @@ import numpy as np
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/6.Augmented Lagrangian Descent')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/6.Augmented Lagrangian Methods')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/4.Projected Methods')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/2.Preconditioned Conjugate Gradient Solver and Newton Descent')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/1.Setup and Initial Implementations')))
+
 
 import quadraticObjective as QO
 import modelObjective as MO

@@ -62,12 +62,34 @@ def augmentedLagrangianDescent(f, P, h, x0: np.array, alpha0=0, eps=1.0e-3, delt
     alphak = alpha0
     gammak = 10
     epsk = 1 / gammak
-    deltak = epsk ** 0.1
+    deltak = 1 / epsk**0.1
 
     xp = P.project(x0)
     myAugmentedObjective = AO.augmentedLagrangianObjective(f, h, alphak, gammak)
 
     # INCOMPLETE CODE STARTS
+
+    # Step 4: While loop for stationarity and feasibility
+    while np.linalg.norm(xp - P.project(xp - myAugmentedObjective.gradient(xp))) > eps or np.linalg.norm(h.objective(xp)) > delta:
+        countIter += 1
+
+        # Step 4a: Minimize Ak(x) using a projection method
+        xp = PCG.projectedInexactNewtonCG(myAugmentedObjective, P, xp, epsk, verbose)
+
+        # Step 4b: Check feasibility and update multipliers and tolerances
+        if np.linalg.norm(h.objective(xp)) <= deltak:
+            alphak = alphak + gammak * h.objective(xp)  # Update Lagrange multipliers
+            epsk = max(epsk / gammak, eps)  # Tighten stationarity tolerance
+            deltak = max(deltak / gammak**0.9, delta)  # Tighten feasibility tolerance
+        else:
+            # Step 4c: Increase penalty parameter and reconfigure tolerances
+            gammak = min(max(10, np.sqrt(gammak)) * gammak, 1.0e10)
+            epsk = 1 / gammak
+            deltak = 1 / gammak**0.1
+
+        # Step 4d: Update the augmented Lagrangian objective
+        myAugmentedObjective = AO.augmentedLagrangianObjective(f, h, alphak, gammak)
+
 
     # INCOMPLETE CODE ENDS
     if verbose:

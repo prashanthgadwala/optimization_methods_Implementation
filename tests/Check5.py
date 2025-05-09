@@ -9,7 +9,9 @@ import numpy as np
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/5.Least Squares Model and Levenberg Marquardt Descent')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/5.Levenberg-Marquardt Descent')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/4.Projected Methods')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/2.Preconditioned Conjugate Gradient Solver and Newton Descent')))
 
 import simpleValleyObjective as SO
 import modelObjective as MO

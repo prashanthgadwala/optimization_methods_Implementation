@@ -45,8 +45,9 @@ class leastSquaresModel:
 
         # INCOMPLETE CODE STARTS
 
-        for k in range(self.N): # iterate over all constraints
-            myResidual[k] = self.p[k] * self.hArray[k].objective(x) # compute residual for each constraint
+        for k in range(self.N): 
+            x_k = self.xData[:, k].reshape((-1, 1))  
+            myResidual[k] = self.model.objective(x_k) - self.fData[:, k]
 
 
         # INCOMPLETE CODE ENDS
@@ -59,9 +60,11 @@ class leastSquaresModel:
 
         # INCOMPLETE CODE STARTS
 
-        for k in range(self.N): # iterate over all constraints
-            myJacobian[k, :] = self.p[k] * self.hArray[k].gradient(x).T # compute jacobian for each constraint
+        for k in range(self.N):  # iterate over all data points
+            x_k = self.xData[:, k].reshape((-1, 1))  # extract k-th data point as column vector
+            myJacobian[k, :] = self.model.parameterGradient(x_k).T  # compute Jacobian row
 
         # INCOMPLETE CODE ENDS
 
         return myJacobian
+
